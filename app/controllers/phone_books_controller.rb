@@ -10,6 +10,7 @@ class PhoneBooksController < ApplicationController
   # GET /phone_books/1
   # GET /phone_books/1.json
   def show
+    @entries = @phone_book.phone_book_entries.order(:name)
   end
 
   # GET /phone_books/new

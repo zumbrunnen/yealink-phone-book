@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @phone_book.phone_book_entries.each do |phone_book_entry| %>
+    <% @entries.each do |phone_book_entry| %>
       <tr>
         <td><%= phone_book_entry.name %></td>
         <td><%= phone_book_entry.telephones %></td>
