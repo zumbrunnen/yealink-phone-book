@@ -1,24 +1,4 @@
-# README
+# Yealink Phone Book Manager
+## Manage and Server Yealink's Remote Phone Books
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Simple Rails app to manage and serve XML phone books for Yealink VoIP phones.
