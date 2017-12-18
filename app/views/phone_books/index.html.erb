@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Phone Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @phone_books.each do |phone_book| %>
+      <tr>
+        <td><%= phone_book.title %></td>
+        <td><%= link_to 'Show', phone_book %></td>
+        <td><%= link_to 'Edit', edit_phone_book_path(phone_book) %></td>
+        <td><%= link_to 'Destroy', phone_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Phone Book', new_phone_book_path %>

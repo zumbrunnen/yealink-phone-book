@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @phone_book.title %></h1>
+<p><%= phone_book_url(@phone_book, format: :xml) %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Numbers</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @phone_book.phone_book_entries.each do |phone_book_entry| %>
+      <tr>
+        <td><%= phone_book_entry.name %></td>
+        <td><%= phone_book_entry.telephones %></td>
+        <td><%= link_to 'Show', phone_book_entry %></td>
+        <td><%= link_to 'Edit', edit_phone_book_entry_path(phone_book_entry) %></td>
+        <td><%= link_to 'Destroy', phone_book_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Entry', new_phone_book_entry_path %> |
+<%= link_to 'Edit', edit_phone_book_path(@phone_book) %> |
+<%= link_to 'Back', phone_books_path %>

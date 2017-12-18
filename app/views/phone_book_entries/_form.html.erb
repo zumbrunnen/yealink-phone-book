@@ -1,0 +1,32 @@
+<%= form_with(model: phone_book_entry, local: true) do |form| %>
+  <% if phone_book_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(phone_book_entry.errors.count, "error") %> prohibited this phone_book_entry from being saved:</h2>
+
+      <ul>
+      <% phone_book_entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :phone_book_id %>
+    <%= form.text_field :phone_book_id, id: :phone_book_entry_phone_book_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :phone_book_entry_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telephones %>
+    <%= form.text_field :telephones, id: :phone_book_entry_telephones %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
