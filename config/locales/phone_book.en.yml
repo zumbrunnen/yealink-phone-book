@@ -1,0 +1,9 @@
+en:
+  activerecord:
+    models:
+      phone_book:
+        one: "Phone Book"
+        other: "Phone Books"
+    attributes:
+      phone_book:
+        title: "Title"

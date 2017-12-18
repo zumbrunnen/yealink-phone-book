@@ -1,29 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Phone book:</strong>
-  <%= @phone_book_entry.phone_book.title %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @phone_book_entry.name %>
-</p>
+<table class="table">
+  <tbody>
+    <tr>
+      <th><%= PhoneBook.model_name.human %></th>
+      <td><%= @phone_book_entry.phone_book.title %></td>
+    </tr>
+    <tr>
+      <th><%= PhoneBookEntry.human_attribute_name(:name) %></th>
+      <td><%= @phone_book_entry.name %></td>
+    </tr>
+    <tr>
+      <th><%= PhoneBookEntry.human_attribute_name(:phone_office) %></th>
+      <td><%= @phone_book_entry.phone_office %></td>
+    </tr>
+    <tr>
+      <th><%= PhoneBookEntry.human_attribute_name(:phone_mobile) %></th>
+      <td><%= @phone_book_entry.phone_mobile %></td>
+    </tr>
+    <tr>
+      <th><%= PhoneBookEntry.human_attribute_name(:phone_other) %></th>
+      <td><%= @phone_book_entry.phone_other %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Phone office:</strong>
-  <%= @phone_book_entry.phone_office %>
-</p>
-
-<p>
-  <strong>Phone mobile:</strong>
-  <%= @phone_book_entry.phone_mobile %>
-</p>
-
-<p>
-  <strong>Phone other:</strong>
-  <%= @phone_book_entry.phone_other %>
-</p>
-
-<%= link_to 'Edit', edit_phone_book_entry_path(@phone_book_entry) %> |
-<%= link_to 'Back', phone_book_path(@phone_book_entry.phone_book) %>
+<%= link_to t('edit'), edit_phone_book_entry_path(@phone_book_entry), class: 'btn btn-secondary' %>
+<%= link_to t('back'), phone_book_path(@phone_book_entry.phone_book), class: 'btn btn-secondary' %>

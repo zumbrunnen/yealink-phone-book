@@ -28,6 +28,11 @@ class PhoneBooksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should show phone_book as XML" do
+    get phone_book_url(@phone_book, format: :xml)
+    assert_response :success
+  end
+
   test "should get edit" do
     get edit_phone_book_url(@phone_book)
     assert_response :success

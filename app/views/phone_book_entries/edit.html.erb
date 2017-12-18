@@ -1,6 +1,6 @@
-<h1>Editing Phone Book Entry</h1>
+<h1><%= t('edit_title', resource: PhoneBookEntry.model_name.human) %></h1>
 
 <%= render 'form', phone_book_entry: @phone_book_entry %>
 
-<%= link_to 'Show', @phone_book_entry %> |
-<%= link_to 'Back', phone_book_entries_path %>
+<%= link_to t('show'), @phone_book_entry, class: 'btn btn-secondary' %>
+<%= link_to t('back'), :back, class: 'btn btn-secondary' %>
