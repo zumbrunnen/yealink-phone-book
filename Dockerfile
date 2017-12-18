@@ -14,7 +14,5 @@ WORKDIR $INSTALL_PATH
 COPY Gemfile Gemfile
 RUN bundle install
 COPY . .
-RUN bundle exec rails assets:precompile
-RUN bundle exec rails db:migrate
 
-CMD bundle exec rails server -p 80
+CMD $INSTALL_PATH/start_rails.sh
