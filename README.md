@@ -10,6 +10,7 @@ This is just a plain simple Ruby on Rails app. So, the general setup steps are a
 1. Checkout the code to a directory
 2. Having Ruby and `bundler` installed, run `bundle install`
 3. Setup a database: `rails db:create` and `rails db:migrate`
+4. Start Rails: `rails server`
 
 
 ### Using Docker
