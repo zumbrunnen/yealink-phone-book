@@ -15,7 +15,9 @@ ActiveRecord::Schema.define(version: 20171218123849) do
   create_table "phone_book_entries", force: :cascade do |t|
     t.integer "phone_book_id"
     t.string "name"
-    t.string "telephones"
+    t.string "phone_office"
+    t.string "phone_mobile"
+    t.string "phone_other"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["phone_book_id"], name: "index_phone_book_entries_on_phone_book_id"

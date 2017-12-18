@@ -3,12 +3,15 @@
 <h1><%= @phone_book.title %></h1>
 <p><%= phone_book_url(@phone_book, format: :xml) %></p>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Numbers</th>
+      <th>Office</th>
+      <th>Mobile</th>
+      <th>Other</th>
       <th colspan="3"></th>
+      
     </tr>
   </thead>
 
@@ -16,7 +19,9 @@
     <% @entries.each do |phone_book_entry| %>
       <tr>
         <td><%= phone_book_entry.name %></td>
-        <td><%= phone_book_entry.telephones %></td>
+        <td><%= phone_book_entry.phone_office %></td>
+        <td><%= phone_book_entry.phone_mobile %></td>
+        <td><%= phone_book_entry.phone_other %></td>
         <td><%= link_to 'Show', phone_book_entry %></td>
         <td><%= link_to 'Edit', edit_phone_book_entry_path(phone_book_entry) %></td>
         <td><%= link_to 'Destroy', phone_book_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>

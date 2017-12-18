@@ -11,8 +11,18 @@
 </p>
 
 <p>
-  <strong>Telephones:</strong>
-  <%= @phone_book_entry.telephones %>
+  <strong>Phone office:</strong>
+  <%= @phone_book_entry.phone_office %>
+</p>
+
+<p>
+  <strong>Phone mobile:</strong>
+  <%= @phone_book_entry.phone_mobile %>
+</p>
+
+<p>
+  <strong>Phone other:</strong>
+  <%= @phone_book_entry.phone_other %>
 </p>
 
 <%= link_to 'Edit', edit_phone_book_entry_path(@phone_book_entry) %> |

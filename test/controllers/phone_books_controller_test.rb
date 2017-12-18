@@ -17,7 +17,7 @@ class PhoneBooksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create phone_book" do
     assert_difference('PhoneBook.count') do
-      post phone_books_url, params: { phone_book: { title: @phone_book.title } }
+      post phone_books_url, params: { phone_book: { title: "Another Phone Book" } }
     end
 
     assert_redirected_to phone_book_url(PhoneBook.last)
@@ -34,7 +34,7 @@ class PhoneBooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update phone_book" do
-    patch phone_book_url(@phone_book), params: { phone_book: { title: @phone_book.title } }
+    patch phone_book_url(@phone_book), params: { phone_book: { title: "New Name" } }
     assert_redirected_to phone_book_url(@phone_book)
   end
 

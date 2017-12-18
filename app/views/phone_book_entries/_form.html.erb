@@ -22,8 +22,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :telephones %>
-    <%= form.text_field :telephones, id: :phone_book_entry_telephones %>
+    <%= form.label :phone_office %>
+    <%= form.text_field :phone_office, id: :phone_book_entry_phone_office %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_mobile %>
+    <%= form.text_field :phone_mobile, id: :phone_book_entry_phone_mobile %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone_other %>
+    <%= form.text_field :phone_other, id: :phone_book_entry_phone_other %>
   </div>
 
   <div class="actions">
