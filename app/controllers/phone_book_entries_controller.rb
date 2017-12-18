@@ -1,12 +1,6 @@
 class PhoneBookEntriesController < ApplicationController
   before_action :set_phone_book_entry, only: [:show, :edit, :update, :destroy]
 
-  # GET /phone_book_entries
-  # GET /phone_book_entries.json
-  def index
-    @phone_book_entries = PhoneBookEntry.all
-  end
-
   # GET /phone_book_entries/1
   # GET /phone_book_entries/1.json
   def show
@@ -69,6 +63,6 @@ class PhoneBookEntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def phone_book_entry_params
-      params.require(:phone_book_entry).permit(:phone_book_id, :name, :telephones)
+      params.require(:phone_book_entry).permit(:phone_book_id, :name, :phone_office, :phone_mobile, :phone_other)
     end
 end

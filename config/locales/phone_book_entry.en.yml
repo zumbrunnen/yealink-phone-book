@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    models:
+      phone_book_entry:
+        one: "Entry"
+        other: "Entries"
+    attributes:
+      phone_book_entry:
+        name: "Name"
+        phone_office: "Office Phone Number"
+        phone_mobile: "Mobile Phone Number"
+        phone_other: "Other Phone Number"

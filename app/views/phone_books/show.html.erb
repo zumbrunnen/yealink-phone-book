@@ -1,30 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @phone_book.title %></h1>
-<p><%= phone_book_url(@phone_book, format: :xml) %></p>
+<p>URL: <code><%= phone_book_url(@phone_book, format: :xml) %></code></p>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Numbers</th>
-      <th colspan="3"></th>
+      <th><%= PhoneBookEntry.human_attribute_name(:name) %></th>
+      <th><%= PhoneBookEntry.human_attribute_name(:phone_office) %></th>
+      <th><%= PhoneBookEntry.human_attribute_name(:phone_mobile) %></th>
+      <th><%= PhoneBookEntry.human_attribute_name(:phone_other) %></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @phone_book.phone_book_entries.each do |phone_book_entry| %>
+    <% @entries.each do |phone_book_entry| %>
       <tr>
-        <td><%= phone_book_entry.name %></td>
-        <td><%= phone_book_entry.telephones %></td>
-        <td><%= link_to 'Show', phone_book_entry %></td>
-        <td><%= link_to 'Edit', edit_phone_book_entry_path(phone_book_entry) %></td>
-        <td><%= link_to 'Destroy', phone_book_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><b><%= link_to phone_book_entry.name, phone_book_entry %></b></td>
+        <td><%= phone_book_entry.phone_office %></td>
+        <td><%= phone_book_entry.phone_mobile %></td>
+        <td><%= phone_book_entry.phone_other %></td>
+        <td><%= link_to material_icon('edit', t('edit')), edit_phone_book_entry_path(phone_book_entry) %></td>
+        <td><%= link_to material_icon('delete', t('delete')), phone_book_entry, method: :delete, data: { confirm: t('confirm') } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'New Entry', new_phone_book_entry_path %> |
-<%= link_to 'Edit', edit_phone_book_path(@phone_book) %> |
-<%= link_to 'Back', phone_books_path %>
+<%= link_to t('new_title', model: PhoneBookEntry.model_name.human), new_phone_book_entry_path, class: 'btn btn-primary' %>
+<%= link_to t('edit'), edit_phone_book_path(@phone_book), class: 'btn btn-secondary' %>
+<%= link_to t('back'), phone_books_path, class: 'btn btn-secondary' %>

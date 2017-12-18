@@ -1,22 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Phone Books</h1>
+<h1><%= PhoneBook.model_name.human(count: 2) %></h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
+      <th><%= PhoneBook.human_attribute_name(:title) %></th>
+      <th>#</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @phone_books.each do |phone_book| %>
       <tr>
-        <td><%= phone_book.title %></td>
-        <td><%= link_to 'Show', phone_book %></td>
-        <td><%= link_to 'Edit', edit_phone_book_path(phone_book) %></td>
-        <td><%= link_to 'Destroy', phone_book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><b><%= link_to phone_book.title, phone_book %></b></td>
+        <td><%= phone_book.phone_book_entries.count %></td>
+        <td><%= link_to material_icon('edit', t('edit')), edit_phone_book_path(phone_book) %></td>
+        <td><%= link_to material_icon('delete', t('delete')), phone_book, method: :delete, data: { confirm: t('confirm') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Phone Book', new_phone_book_path %>
+<%= link_to t('new_title', model: PhoneBook.model_name.human), new_phone_book_path, class: 'btn btn-primary' %>

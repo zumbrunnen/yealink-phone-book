@@ -2,10 +2,14 @@
 
 one:
   phone_book: one
-  name: MyString
-  telephones: 
+  name: Diana
+  phone_office: "02029393"
+  phone_mobile: "0304848"
+  phone_other: "9394934"
 
 two:
   phone_book: two
-  name: MyString
-  telephones: 
+  name: Roger
+  phone_office: "02029395"
+  phone_mobile: "03048485"
+  phone_other: "93949345"

@@ -11,22 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :phone_book_id %>
-    <%= form.text_field :phone_book_id, id: :phone_book_entry_phone_book_id %>
+    <%= form.text_field :phone_book_id, id: :phone_book_entry_phone_book_id, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :phone_book_entry_name %>
+    <%= form.text_field :name, id: :phone_book_entry_name, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :telephones %>
-    <%= form.text_field :telephones, id: :phone_book_entry_telephones %>
+  <div class="form-group">
+    <%= form.label :phone_office %>
+    <%= form.text_field :phone_office, id: :phone_book_entry_phone_office, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.label :phone_mobile %>
+    <%= form.text_field :phone_mobile, id: :phone_book_entry_phone_mobile, class: 'form-control' %>
   </div>
+
+  <div class="form-group">
+    <%= form.label :phone_other %>
+    <%= form.text_field :phone_other, id: :phone_book_entry_phone_other, class: 'form-control' %>
+  </div>
+
+  <%= form.submit nil, class: 'btn btn-primary' %>
 <% end %>

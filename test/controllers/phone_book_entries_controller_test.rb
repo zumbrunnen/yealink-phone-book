@@ -5,11 +5,6 @@ class PhoneBookEntriesControllerTest < ActionDispatch::IntegrationTest
     @phone_book_entry = phone_book_entries(:one)
   end
 
-  test "should get index" do
-    get phone_book_entries_url
-    assert_response :success
-  end
-
   test "should get new" do
     get new_phone_book_entry_url
     assert_response :success
@@ -17,7 +12,7 @@ class PhoneBookEntriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create phone_book_entry" do
     assert_difference('PhoneBookEntry.count') do
-      post phone_book_entries_url, params: { phone_book_entry: { name: @phone_book_entry.name, phone_book_id: @phone_book_entry.phone_book_id, telephones: @phone_book_entry.telephones } }
+      post phone_book_entries_url, params: { phone_book_entry: { name: @phone_book_entry.name, phone_book_id: @phone_book_entry.phone_book_id, phone_office: @phone_book_entry.phone_office } }
     end
 
     assert_redirected_to phone_book_entry_url(PhoneBookEntry.last)
@@ -34,7 +29,7 @@ class PhoneBookEntriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update phone_book_entry" do
-    patch phone_book_entry_url(@phone_book_entry), params: { phone_book_entry: { name: @phone_book_entry.name, phone_book_id: @phone_book_entry.phone_book_id, telephones: @phone_book_entry.telephones } }
+    patch phone_book_entry_url(@phone_book_entry), params: { phone_book_entry: { name: "Changed my Name", phone_book_id: @phone_book_entry.phone_book_id, phone_mobile: @phone_book_entry.phone_mobile } }
     assert_redirected_to phone_book_entry_url(@phone_book_entry)
   end
 
