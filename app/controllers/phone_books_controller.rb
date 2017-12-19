@@ -29,7 +29,8 @@ class PhoneBooksController < ApplicationController
 
     respond_to do |format|
       if @phone_book.save
-        format.html { redirect_to @phone_book, notice: 'Phone book was successfully created.' }
+        notice = t('successful.messages.created', model: PhoneBook.model_name.human)
+        format.html { redirect_to @phone_book, notice: notice }
         format.json { render :show, status: :created, location: @phone_book }
       else
         format.html { render :new }
@@ -43,7 +44,8 @@ class PhoneBooksController < ApplicationController
   def update
     respond_to do |format|
       if @phone_book.update(phone_book_params)
-        format.html { redirect_to @phone_book, notice: 'Phone book was successfully updated.' }
+        notice = t('successful.messages.updated', model: PhoneBook.model_name.human)
+        format.html { redirect_to @phone_book, notice: notice }
         format.json { render :show, status: :ok, location: @phone_book }
       else
         format.html { render :edit }
@@ -57,7 +59,8 @@ class PhoneBooksController < ApplicationController
   def destroy
     @phone_book.destroy
     respond_to do |format|
-      format.html { redirect_to phone_books_url, notice: 'Phone book was successfully destroyed.' }
+      notice = t('successful.messages.deleted', model: PhoneBook.model_name.human)
+      format.html { redirect_to phone_books_url, notice: notice }
       format.json { head :no_content }
     end
   end

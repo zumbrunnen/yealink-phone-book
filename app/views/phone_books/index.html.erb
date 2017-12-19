@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <div id="notice" class="alert alert-success mt-2" role="alert"><%= notice %></div>
+<% end %>
 
 <h1><%= PhoneBook.model_name.human(count: 2) %></h1>
 

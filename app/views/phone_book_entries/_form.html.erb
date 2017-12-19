@@ -1,20 +1,26 @@
 <%= form_with(model: phone_book_entry, local: true) do |form| %>
   <% if phone_book_entry.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(phone_book_entry.errors.count, "error") %> prohibited this phone_book_entry from being saved:</h2>
-
-      <ul>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <h4 class="alert-heading"><%= t('errors.template.header', :model => PhoneBookEntry.model_name.human, :count => phone_book_entry.errors.count) %></h4>
+      <ul class="mb-0">
       <% phone_book_entry.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :phone_book_id %>
-    <%= form.text_field :phone_book_id, id: :phone_book_entry_phone_book_id, class: 'form-control' %>
-  </div>
+  <% if params[:phone_book_id].present? %>
+    <%= form.hidden_field :phone_book_id, value: params[:phone_book_id] %>
+  <% else %>
+    <div class="form-group">
+      <%= form.label :phone_book_id %>
+      <%= form.collection_select :phone_book_id, PhoneBook.all, :id, :title, {}, id: :phone_book_entry_phone_book_id, class: 'form-control' %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= form.label :name %>

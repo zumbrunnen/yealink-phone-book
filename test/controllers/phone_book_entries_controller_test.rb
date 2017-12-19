@@ -5,6 +5,11 @@ class PhoneBookEntriesControllerTest < ActionDispatch::IntegrationTest
     @phone_book_entry = phone_book_entries(:one)
   end
 
+  test "should get index" do
+    get phone_book_entries_url
+    assert_response :success
+  end
+
   test "should get new" do
     get new_phone_book_entry_url
     assert_response :success

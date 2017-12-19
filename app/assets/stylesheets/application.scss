@@ -1,0 +1,7 @@
+@import "bootstrap";
+
+.field_with_errors {
+  input {
+    @extend .is-invalid;
+  }
+}

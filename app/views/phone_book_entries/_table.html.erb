@@ -1,0 +1,34 @@
+<% if entries.blank? %>
+ <p><em><%= t('no_results') %></em></p>
+
+<% else %>
+  <table class="table">
+    <thead>
+      <tr>
+        <% if show_phone_book %>
+            <th><%= PhoneBook.model_name.human %></th>
+        <% end %>
+        <th><%= PhoneBookEntry.human_attribute_name(:name) %></th>
+        <th><%= PhoneBookEntry.human_attribute_name(:phone_office) %></th>
+        <th><%= PhoneBookEntry.human_attribute_name(:phone_mobile) %></th>
+        <th><%= PhoneBookEntry.human_attribute_name(:phone_other) %></th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% entries.each do |phone_book_entry| %>
+        <tr>
+          <% if show_phone_book %>
+              <td><%= phone_book_entry.phone_book.title %></td>
+          <% end %>
+          <td><b><%= link_to highlight(phone_book_entry.name, params[:q]), phone_book_entry %></b></td>
+          <td><%= highlight(phone_book_entry.phone_office, params[:q]) %></td>
+          <td><%= highlight(phone_book_entry.phone_mobile, params[:q]) %></td>
+          <td><%= highlight(phone_book_entry.phone_other, params[:q]) %></td>
+          <td><%= link_to material_icon('edit', t('edit')), edit_phone_book_entry_path(phone_book_entry) %></td>
+          <td><%= link_to material_icon('delete', t('delete')), phone_book_entry, method: :delete, data: { confirm: t('confirm') } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
