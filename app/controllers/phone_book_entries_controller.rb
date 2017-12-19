@@ -60,10 +60,11 @@ class PhoneBookEntriesController < ApplicationController
   # DELETE /phone_book_entries/1
   # DELETE /phone_book_entries/1.json
   def destroy
+    phone_book = @phone_book_entry.phone_book
     @phone_book_entry.destroy
     respond_to do |format|
       notice = t('successful.messages.deleted', model: PhoneBookEntry.model_name.human)
-      format.html { redirect_to phone_book_entries_url, notice: notice }
+      format.html { redirect_to phone_book, notice: notice }
       format.json { head :no_content }
     end
   end

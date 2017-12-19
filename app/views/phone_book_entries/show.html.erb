@@ -28,4 +28,5 @@
 </table>
 
 <%= link_to t('edit'), edit_phone_book_entry_path(@phone_book_entry), class: 'btn btn-secondary' %>
+<%= link_to t('delete'), @phone_book_entry, method: :delete, data: { confirm: t('confirm') }, class: 'btn btn-danger' %>
 <%= link_to t('back'), phone_book_path(@phone_book_entry.phone_book), class: 'btn btn-secondary' %>
