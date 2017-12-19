@@ -1,7 +1,11 @@
 class PhoneBookEntry < ApplicationRecord
   belongs_to :phone_book
 
+  before_save :cleanup_phone_numbers
+
   validates :name, presence: true
+  validates :phone_office, :phone_mobile, :phone_other, format: { with: /\A\+?[\d\s]+\z/, message: :invalid_phone_number_format }, allow_blank: true
+  validate :has_at_least_one_phone_number
 
   scope :search, -> (query_string) {
     query = "%#{query_string.downcase}%"
@@ -10,4 +14,18 @@ class PhoneBookEntry < ApplicationRecord
         query, query, query, query
     )
   }
+
+  private
+
+  def has_at_least_one_phone_number
+    unless [phone_office, phone_mobile, phone_other].map(&:present?).any?
+      errors.add(:base, :has_at_least_one_phone_number_required)
+    end
+  end
+
+  def cleanup_phone_numbers
+    self.phone_office = self.phone_office.delete(' ')
+    self.phone_mobile = self.phone_mobile.delete(' ')
+    self.phone_other = self.phone_other.delete(' ')
+  end
 end
