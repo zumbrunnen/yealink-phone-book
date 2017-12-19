@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: redirect('/phone_books')
   resources :phone_books
-  resources :phone_book_entries, except: :index
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :phone_book_entries
 end

@@ -1,6 +1,12 @@
 class PhoneBookEntriesController < ApplicationController
   before_action :set_phone_book_entry, only: [:show, :edit, :update, :destroy]
 
+  # GET /phone_book_entries
+  # GET /phone_book_entries.json
+  def index
+    @phone_book_entries = PhoneBookEntry.all
+  end
+
   # GET /phone_book_entries/1
   # GET /phone_book_entries/1.json
   def show
