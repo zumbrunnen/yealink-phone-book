@@ -4,7 +4,11 @@ class PhoneBookEntriesController < ApplicationController
   # GET /phone_book_entries
   # GET /phone_book_entries.json
   def index
-    @phone_book_entries = PhoneBookEntry.all
+    if params[:q].present?
+      @phone_book_entries = PhoneBookEntry.search(params[:q])
+    else
+      @phone_book_entries = PhoneBookEntry.all
+    end
   end
 
   # GET /phone_book_entries/1

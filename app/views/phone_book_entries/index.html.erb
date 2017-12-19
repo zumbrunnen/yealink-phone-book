@@ -3,7 +3,3 @@
 <h1><%= PhoneBookEntry.model_name.human(count: 2) %></h1>
 
 <%= render partial: 'table', locals: { entries: @phone_book_entries, show_phone_book: true } %>
-
-<br>
-
-<%= link_to t('new_title', model: PhoneBook.model_name.human), new_phone_book_path, class: 'btn btn-primary' %>
