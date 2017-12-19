@@ -1,0 +1,27 @@
+de:
+  app_name: "Yealink Phone Book Manager"
+  new: "Neu"
+  new_title: "%{model}: Neu"
+  show: "Anzeigen"
+  edit: "Bearbeiten"
+  edit_title: "%{resource} bearbeiten"
+  save: "Speichern"
+  back: "Zurück"
+  delete: "Löschen"
+  confirm: "Sind Sie sicher?"
+  search: "Suchen"
+  no_results: "Keine Ergebnisse zu Ihrer Suchanfrage gefunden."
+  language: "Sprache"
+  time_ago: "%{time}"
+  created_at: "Erstellt am"
+  updated_at: "Aktualisiert am"
+  not_allowed: "Sie haben keine Berechtigung, diese Seite anzuzeigen."
+  successful:
+    messages:
+      created: "%{model} wurde erfolgreich erstellt."
+      updated: "%{model} wurde erfolgreich aktualisiert."
+      deleted: "%{model} wurde erfolgreich gelöscht."
+  helpers:
+    submit:
+      create: "%{model} erstellen"
+      update: "%{model} aktualisieren"

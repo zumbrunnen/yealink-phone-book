@@ -1,0 +1,12 @@
+de:
+  activerecord:
+    models:
+      phone_book_entry:
+        one: "Eintrag"
+        other: "Einträge"
+    attributes:
+      phone_book_entry:
+        name: "Name"
+        phone_office: "Geschäftlich"
+        phone_mobile: "Mobil"
+        phone_other: "Weitere"
