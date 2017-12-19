@@ -2,5 +2,4 @@
 
 <%= render 'form', phone_book_entry: @phone_book_entry %>
 
-<%= link_to t('show'), @phone_book_entry, class: 'btn btn-secondary' %>
-<%= link_to t('back'), :back, class: 'btn btn-secondary' %>
+<%= link_to material_icon('arrow_back', t('back')), :back, class: 'btn btn-secondary' %>

@@ -11,3 +11,11 @@ en:
         phone_office: "Office"
         phone_mobile: "Mobile"
         phone_other: "Other"
+    errors:
+      models:
+        phone_book_entry:
+          attributes:
+            base:
+              has_at_least_one_phone_number_required: "At least one phone number can't be blank"
+      messages:
+        invalid_phone_number_format: "is invalid. Only numbers, spaces and '+' are allowed"

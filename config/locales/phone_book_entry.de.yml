@@ -11,3 +11,11 @@ de:
         phone_office: "Geschäftlich"
         phone_mobile: "Mobil"
         phone_other: "Weitere"
+    errors:
+      models:
+        phone_book_entry:
+          attributes:
+            base:
+              has_at_least_one_phone_number_required: "Mindestens eine Telefonnummer muss ausgefüllt werden"
+      messages:
+        invalid_phone_number_format: "ist ungültig. Nur Zahlen, Leerzeichen und '+' sind erlaubt"
