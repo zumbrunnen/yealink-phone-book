@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <div id="notice" class="alert alert-success mt-2" role="alert"><%= notice %></div>
+<% end %>
 
 <h1><%= @phone_book.title %></h1>
 <p>URL: <code><%= phone_book_url(@phone_book, format: :xml) %></code></p>

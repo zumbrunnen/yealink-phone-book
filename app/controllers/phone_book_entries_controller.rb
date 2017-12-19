@@ -32,7 +32,8 @@ class PhoneBookEntriesController < ApplicationController
 
     respond_to do |format|
       if @phone_book_entry.save
-        format.html { redirect_to @phone_book_entry, notice: 'Phone book entry was successfully created.' }
+        notice = t('successful.messages.created', model: PhoneBookEntry.model_name.human)
+        format.html { redirect_to @phone_book_entry, notice: notice }
         format.json { render :show, status: :created, location: @phone_book_entry }
       else
         format.html { render :new }
@@ -46,7 +47,8 @@ class PhoneBookEntriesController < ApplicationController
   def update
     respond_to do |format|
       if @phone_book_entry.update(phone_book_entry_params)
-        format.html { redirect_to @phone_book_entry, notice: 'Phone book entry was successfully updated.' }
+        notice = t('successful.messages.updated', model: PhoneBookEntry.model_name.human)
+        format.html { redirect_to @phone_book_entry, notice: notice }
         format.json { render :show, status: :ok, location: @phone_book_entry }
       else
         format.html { render :edit }
@@ -60,7 +62,8 @@ class PhoneBookEntriesController < ApplicationController
   def destroy
     @phone_book_entry.destroy
     respond_to do |format|
-      format.html { redirect_to phone_book_entries_url, notice: 'Phone book entry was successfully destroyed.' }
+      notice = t('successful.messages.deleted', model: PhoneBookEntry.model_name.human)
+      format.html { redirect_to phone_book_entries_url, notice: notice }
       format.json { head :no_content }
     end
   end
