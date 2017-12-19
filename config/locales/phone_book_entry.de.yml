@@ -6,6 +6,7 @@ de:
         other: "Einträge"
     attributes:
       phone_book_entry:
+        phone_book_id: "Telefonbuch"
         name: "Name"
         phone_office: "Geschäftlich"
         phone_mobile: "Mobil"

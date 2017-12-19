@@ -13,10 +13,14 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :phone_book_id %>
-    <%= form.text_field :phone_book_id, id: :phone_book_entry_phone_book_id, class: 'form-control' %>
-  </div>
+  <% if params[:phone_book_id].present? %>
+    <%= form.hidden_field :phone_book_id, value: params[:phone_book_id] %>
+  <% else %>
+    <div class="form-group">
+      <%= form.label :phone_book_id %>
+      <%= form.collection_select :phone_book_id, PhoneBook.all, :id, :title, {}, id: :phone_book_entry_phone_book_id, class: 'form-control' %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= form.label :name %>
