@@ -18,8 +18,8 @@
       <tr>
         <td><b><%= link_to phone_book.title, phone_book %></b></td>
         <td><%= phone_book.phone_book_entries.count %></td>
-        <td><%= link_to material_icon('edit', t('edit')), edit_phone_book_path(phone_book) %></td>
-        <td><%= link_to material_icon('delete', t('delete')), phone_book, method: :delete, data: { confirm: t('confirm') } %></td>
+        <td><%= link_to material_icon('edit'), edit_phone_book_path(phone_book) %></td>
+        <td><%= link_to material_icon('delete'), phone_book, method: :delete, data: { confirm: t('confirm') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to t('new_title', model: PhoneBook.model_name.human), new_phone_book_path, class: 'btn btn-primary' %>
+<%= link_to material_icon('add', t('new_title', model: PhoneBook.model_name.human)), new_phone_book_path, class: 'btn btn-primary' %>

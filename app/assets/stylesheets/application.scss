@@ -5,3 +5,7 @@
     @extend .is-invalid;
   }
 }
+
+.btn i {
+  font-size: inherit;
+}
