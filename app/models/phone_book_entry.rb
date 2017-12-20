@@ -3,7 +3,7 @@ class PhoneBookEntry < ApplicationRecord
 
   before_save :cleanup_phone_numbers
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: { scope: :phone_book_id }
   validates :phone_office, :phone_mobile, :phone_other, format: { with: /\A\+?[\d\s]+\z/, message: :invalid_phone_number_format }, allow_blank: true
   validate :has_at_least_one_phone_number
 

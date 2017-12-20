@@ -18,4 +18,4 @@ en:
             base:
               has_at_least_one_phone_number_required: "At least one phone number can't be blank"
       messages:
-        invalid_phone_number_format: "is invalid. Only numbers, spaces and '+' are allowed"
+        invalid_phone_number_format: "is invalid. Only numbers, spaces and a leading '+' are allowed"
