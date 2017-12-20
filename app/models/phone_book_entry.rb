@@ -24,8 +24,8 @@ class PhoneBookEntry < ApplicationRecord
   end
 
   def cleanup_phone_numbers
-    self.phone_office = self.phone_office.delete(' ')
-    self.phone_mobile = self.phone_mobile.delete(' ')
-    self.phone_other = self.phone_other.delete(' ')
+    self.phone_office.delete!(' ') if self.phone_office.present?
+    self.phone_mobile.delete!(' ') if self.phone_mobile.present?
+    self.phone_other.delete!(' ') if self.phone_other.present?
   end
 end

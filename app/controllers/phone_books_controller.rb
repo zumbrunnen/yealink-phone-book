@@ -1,5 +1,5 @@
 class PhoneBooksController < ApplicationController
-  before_action :set_phone_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_phone_book, only: [:show, :edit, :update, :destroy, :import]
 
   # GET /phone_books
   # GET /phone_books.json
@@ -63,6 +63,16 @@ class PhoneBooksController < ApplicationController
       format.html { redirect_to phone_books_url, notice: notice }
       format.json { head :no_content }
     end
+  end
+
+  # GET /phone_books/1/import
+  # POST /phone_books/1/import
+  def import
+    if request.post?
+
+    else
+    end
+
   end
 
   private

@@ -7,3 +7,8 @@ en:
     attributes:
       phone_book:
         title: "Title"
+  phone_books:
+    show:
+      import_entries: "Import Entries"
+    import:
+      help_text: "TODO: Write a help text."

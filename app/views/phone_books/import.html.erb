@@ -1,0 +1,17 @@
+<% if notice.present? %>
+  <div id="notice" class="alert alert-success mt-2" role="alert"><%= notice %></div>
+<% end %>
+
+<h1>Import</h1>
+
+<p><%= t('.help_text') %></p>
+
+<%= form_tag(import_phone_book_path, multipart: true) do %>
+  <div class="form-group">
+    <%= label_tag :file, 'CSV File' %>
+    <%= file_field_tag :file, class: 'form-control-file' %>
+  </div>
+  <%= submit_tag nil, class: 'btn btn-primary mb-2' %>
+<% end %>
+
+<%= link_to material_icon('arrow_back', t('back')), @phone_book, class: 'btn btn-secondary' %>
