@@ -7,3 +7,16 @@ en:
     attributes:
       phone_book:
         title: "Title"
+  phone_books:
+    show:
+      import_entries: "Import Entries"
+    import:
+      help_text_csv_format: "The CSV file must be comma-separated (',') and have a header line containing these column names:"
+      help_text_duplicates: "Already existing entries (having the same name) will be skipped and won't get updated."
+      csv_file_label: "CSV File"
+      import_errors:
+        one: "There was one error while importing:"
+        other: "There were %{count} errors while importing:"
+      successfully_imported:
+        one: "One entry has been imported successfully."
+        other: "%{count} entries have been imported successfully."

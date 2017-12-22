@@ -50,4 +50,9 @@ class PhoneBooksControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to phone_books_url
   end
+
+  test "should get import" do
+    get import_phone_book_path(@phone_book)
+    assert_response :success
+  end
 end

@@ -4,7 +4,7 @@ one:
   phone_book: one
   name: Diana
   phone_office: "02029393"
-  phone_mobile: "0304848"
+  phone_mobile:
   phone_other: "9394934"
 
 two:
@@ -12,4 +12,4 @@ two:
   name: Roger
   phone_office: "02029395"
   phone_mobile: "03048485"
-  phone_other: "93949345"
+  phone_other: ""

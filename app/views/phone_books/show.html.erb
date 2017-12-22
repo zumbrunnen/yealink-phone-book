@@ -9,4 +9,5 @@
 
 <%= link_to material_icon('add', t('new_title', model: PhoneBookEntry.model_name.human)), new_phone_book_entry_path(phone_book_id: @phone_book.id), class: 'btn btn-primary' %>
 <%= link_to material_icon('edit', t('edit')), edit_phone_book_path(@phone_book), class: 'btn btn-secondary' %>
+<%= link_to material_icon('import_contacts', t('.import_entries')), import_phone_book_path(@phone_book), class: 'btn btn-secondary' %>
 <%= link_to material_icon('arrow_back', t('back')), phone_books_path, class: 'btn btn-secondary' %>

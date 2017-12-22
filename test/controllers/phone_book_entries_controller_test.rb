@@ -17,7 +17,12 @@ class PhoneBookEntriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create phone_book_entry" do
     assert_difference('PhoneBookEntry.count') do
-      post phone_book_entries_url, params: { phone_book_entry: { name: @phone_book_entry.name, phone_book_id: @phone_book_entry.phone_book_id, phone_office: @phone_book_entry.phone_office } }
+      post phone_book_entries_url, params: {
+        phone_book_entry: {
+          name: 'Newbie', phone_book_id: @phone_book_entry.phone_book_id,
+          phone_office: @phone_book_entry.phone_office
+        }
+      }
     end
 
     assert_redirected_to phone_book_entry_url(PhoneBookEntry.last)
@@ -39,10 +44,11 @@ class PhoneBookEntriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy phone_book_entry" do
+    phone_book = @phone_book_entry.phone_book
     assert_difference('PhoneBookEntry.count', -1) do
       delete phone_book_entry_url(@phone_book_entry)
     end
 
-    assert_redirected_to phone_book_entries_url
+    assert_redirected_to phone_book
   end
 end

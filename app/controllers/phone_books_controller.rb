@@ -1,5 +1,5 @@
 class PhoneBooksController < ApplicationController
-  before_action :set_phone_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_phone_book, only: [:show, :edit, :update, :destroy, :import]
 
   # GET /phone_books
   # GET /phone_books.json
@@ -62,6 +62,28 @@ class PhoneBooksController < ApplicationController
       notice = t('successful.messages.deleted', model: PhoneBook.model_name.human)
       format.html { redirect_to phone_books_url, notice: notice }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /phone_books/1/import
+  # POST /phone_books/1/import
+  def import
+    @entries_with_errors = []
+
+    if request.post?
+      require 'csv'
+      imported_count = 0
+      csv_text = File.read(params[:file].path)
+      csv = CSV.parse(csv_text, :headers => true)
+      csv.each do |row|
+        entry = PhoneBookEntry.new(row.to_hash.merge(phone_book_id: @phone_book.id))
+        if entry.save
+          imported_count += 1
+        else
+          @entries_with_errors << entry
+        end
+      end
+      flash[:notice] = t('.successfully_imported', count: imported_count) if imported_count > 0
     end
   end
 
