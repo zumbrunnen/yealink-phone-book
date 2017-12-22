@@ -11,4 +11,12 @@ de:
     show:
       import_entries: "Einträge importieren"
     import:
-      help_text: "TODO: Hilfetext schreiben."
+      help_text_csv_format: "Die CSV-Datei muss Kommagetrennt (',') sein und ein Kopfzeile mit diesen Spaltennamen enthalten:"
+      help_text_duplicates: "Bereits existierende Datensätze (aufgrund des Namens) werden übersprungen und nicht aktualisiert."
+      csv_file_label: "CSV-Datei"
+      import_errors:
+        one: "Beim Import ist ein Fehler aufgetreten:"
+        other: "Beim Import sind %{count} Fehler aufgetreten:"
+      successfully_imported:
+        one: "Ein Eintrag wurde erfolgreich importiert."
+        other: "%{count} Einträge wurden erfolgreich importiert."

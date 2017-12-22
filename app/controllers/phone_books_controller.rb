@@ -68,11 +68,23 @@ class PhoneBooksController < ApplicationController
   # GET /phone_books/1/import
   # POST /phone_books/1/import
   def import
+    @entries_with_errors = []
+
     if request.post?
-
-    else
+      require 'csv'
+      imported_count = 0
+      csv_text = File.read(params[:file].path)
+      csv = CSV.parse(csv_text, :headers => true)
+      csv.each do |row|
+        entry = PhoneBookEntry.new(row.to_hash.merge(phone_book_id: @phone_book.id))
+        if entry.save
+          imported_count += 1
+        else
+          @entries_with_errors << entry
+        end
+      end
+      flash[:notice] = t('.successfully_imported', count: imported_count) if imported_count > 0
     end
-
   end
 
   private

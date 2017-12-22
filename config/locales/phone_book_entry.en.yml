@@ -6,6 +6,7 @@ en:
         other: "Entries"
     attributes:
       phone_book_entry:
+        phone_book: "Phone Book"
         phone_book_id: "Phone Book"
         name: "Name"
         phone_office: "Office"

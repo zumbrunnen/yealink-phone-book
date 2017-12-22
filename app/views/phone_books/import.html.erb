@@ -2,14 +2,32 @@
   <div id="notice" class="alert alert-success mt-2" role="alert"><%= notice %></div>
 <% end %>
 
+<% if @entries_with_errors.any? %>
+  <div class="alert alert-danger alert-dismissible mt-2" role="alert">
+    <h4 class="alert-heading"><%= t('.import_errors', :count => @entries_with_errors.count) %></h4>
+    <ul class="mb-0">
+    <% @entries_with_errors.each do |entry| %>
+      <% entry.errors.full_messages.each do |message| %>
+        <li><%= entry.name + ': ' if entry.name.present? %><%= message %></li>
+      <% end %>
+    <% end %>
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
 <h1>Import</h1>
 
-<p><%= t('.help_text') %></p>
+<p><%= t('.help_text_csv_format') %></p>
+<p><code>name, phone_office, phone_mobile, phone_other</code></p>
+<p><%= t('.help_text_duplicates') %></p>
 
 <%= form_tag(import_phone_book_path, multipart: true) do %>
   <div class="form-group">
-    <%= label_tag :file, 'CSV File' %>
-    <%= file_field_tag :file, class: 'form-control-file' %>
+    <%= label_tag :file, t('.csv_file_label') %>
+    <%= file_field_tag :file, class: 'form-control-file', required: true %>
   </div>
   <%= submit_tag nil, class: 'btn btn-primary mb-2' %>
 <% end %>
