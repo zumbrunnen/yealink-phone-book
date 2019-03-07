@@ -1,4 +1,4 @@
-FROM ruby:2.4.3
+FROM ruby:2.6
 MAINTAINER David Zumbrunnen <zumbrunnen@gmail.com>
 
 ENV INSTALL_PATH /yealink
