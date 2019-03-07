@@ -7,4 +7,4 @@ test:
 production:
   adapter: redis
   url: redis://localhost:6379/1
-  channel_prefix: yealink-phonebook_production
+  channel_prefix: yealink_phone_book_production
