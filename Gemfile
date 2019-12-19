@@ -10,7 +10,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'mini_racer', platforms: :ruby
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3'
 gem 'rails', '~> 5.2'
 gem 'sass-rails', '~> 5.0'
 gem 'sqlite3', '~> 1.3.13'
